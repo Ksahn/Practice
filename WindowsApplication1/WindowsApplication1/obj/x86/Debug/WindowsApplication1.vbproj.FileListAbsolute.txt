@@ -8,6 +8,3 @@ E:\Users\RD\documents\visual studio 2010\Projects\WindowsApplication1\WindowsApp
 E:\Users\RD\documents\visual studio 2010\Projects\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.exe
 E:\Users\RD\documents\visual studio 2010\Projects\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.xml
 E:\Users\RD\documents\visual studio 2010\Projects\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.pdb
-D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.exe
-D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.xml
-D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.pdb
