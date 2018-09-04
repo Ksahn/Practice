@@ -120,7 +120,7 @@ Partial Class Form_main
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.btn_WB)
         Me.Name = "Form_main"
-        Me.Text = "Form1"
+        Me.Text = "Performance Vison"
         CType(Me.PerformanceCounter1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
