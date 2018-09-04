@@ -72,10 +72,10 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form_BookMark.Designer.vb">
-      <DependentUpon>Form_BookMark.vb</DependentUpon>
+    <Compile Include="Form_Treeview.Designer.vb">
+      <DependentUpon>Form_Treeview.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form_BookMark.vb">
+    <Compile Include="Form_Treeview.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_webBrowser.Designer.vb">
@@ -108,8 +108,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form_BookMark.resx">
-      <DependentUpon>Form_BookMark.vb</DependentUpon>
+    <EmbeddedResource Include="Form_Treeview.resx">
+      <DependentUpon>Form_Treeview.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_main.resx">
       <DependentUpon>Form_main.vb</DependentUpon>

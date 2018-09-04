@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form_BookMark
+Partial Class Form_Treeview
     Inherits System.Windows.Forms.Form
 
     'Form은 Dispose를 재정의하여 구성 요소 목록을 정리합니다.
@@ -22,13 +22,12 @@ Partial Class Form_BookMark
     '코드 편집기를 사용하여 수정하지 마십시오.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("즐겨찾기")
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.btn_addG = New System.Windows.Forms.Button()
         Me.btn_delG = New System.Windows.Forms.Button()
         Me.Pnl_grup = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txt_addG = New System.Windows.Forms.TextBox()
         Me.btn_Grupcsl = New System.Windows.Forms.Button()
         Me.btn_Grupadd = New System.Windows.Forms.Button()
         Me.Pnl_grup.SuspendLayout()
@@ -38,9 +37,6 @@ Partial Class Form_BookMark
         '
         Me.TreeView1.Location = New System.Drawing.Point(12, 12)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = ""
-        TreeNode1.Text = "즐겨찾기"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.TreeView1.Size = New System.Drawing.Size(354, 354)
         Me.TreeView1.TabIndex = 8
         '
@@ -66,7 +62,7 @@ Partial Class Form_BookMark
         '
         Me.Pnl_grup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Pnl_grup.Controls.Add(Me.Label2)
-        Me.Pnl_grup.Controls.Add(Me.TextBox3)
+        Me.Pnl_grup.Controls.Add(Me.txt_addG)
         Me.Pnl_grup.Controls.Add(Me.btn_Grupcsl)
         Me.Pnl_grup.Controls.Add(Me.btn_Grupadd)
         Me.Pnl_grup.Location = New System.Drawing.Point(12, 291)
@@ -84,12 +80,12 @@ Partial Class Form_BookMark
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "NAME"
         '
-        'TextBox3
+        'txt_addG
         '
-        Me.TextBox3.Location = New System.Drawing.Point(45, 12)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(147, 21)
-        Me.TextBox3.TabIndex = 2
+        Me.txt_addG.Location = New System.Drawing.Point(45, 12)
+        Me.txt_addG.Name = "txt_addG"
+        Me.txt_addG.Size = New System.Drawing.Size(147, 21)
+        Me.txt_addG.TabIndex = 2
         '
         'btn_Grupcsl
         '
@@ -109,7 +105,7 @@ Partial Class Form_BookMark
         Me.btn_Grupadd.Text = "Add"
         Me.btn_Grupadd.UseVisualStyleBackColor = True
         '
-        'Form_BookMark
+        'Form_Treeview
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -118,7 +114,7 @@ Partial Class Form_BookMark
         Me.Controls.Add(Me.btn_delG)
         Me.Controls.Add(Me.btn_addG)
         Me.Controls.Add(Me.TreeView1)
-        Me.Name = "Form_BookMark"
+        Me.Name = "Form_Treeview"
         Me.Text = "BookMark"
         Me.Pnl_grup.ResumeLayout(False)
         Me.Pnl_grup.PerformLayout()
@@ -130,7 +126,7 @@ Partial Class Form_BookMark
     Friend WithEvents btn_delG As System.Windows.Forms.Button
     Friend WithEvents Pnl_grup As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_addG As System.Windows.Forms.TextBox
     Friend WithEvents btn_Grupcsl As System.Windows.Forms.Button
     Friend WithEvents btn_Grupadd As System.Windows.Forms.Button
 End Class

@@ -41,11 +41,11 @@ Public Class Form_webBrowser
         txt_mainurl.Text = WebBrowser1.Url.ToString
         Me.Text = WebBrowser1.DocumentTitle
 
-        If Form_BookMark.TreeView1.Nodes.Then Then
-            Cbtn_BookMark.Checked = True
-        Else
-            Cbtn_BookMark.Checked = False
-        End If
+        'If Form_BookMark.TreeView1.Nodes.Then Then
+        '    Cbtn_BookMark.Checked = True
+        'Else
+        '    Cbtn_BookMark.Checked = False
+        'End If
 
 
 
@@ -72,12 +72,12 @@ Public Class Form_webBrowser
     End Sub
 
     Private Sub btn_Bookad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Bookad.Click
-        Form_BookMark.TreeView1.Nodes.Add(txt_name.Text)
+        Form_Treeview.TreeView1.Nodes.Add(txt_name.Text)
 
         BookMP.Visible = False
     End Sub
 
     Private Sub btn_bookmark_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_bookmark.Click
-        Form_BookMark.Show()
+        Form_Treeview.Show()
     End Sub
 End Class
