@@ -42,6 +42,7 @@
     End Sub
 
     Private Sub Form_Treeview_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        initial()
         LoadNodes(NodeDataFile)
     End Sub
 
@@ -92,6 +93,28 @@
     End Sub
 
 #End Region
+    Public Sub initial()
+        Dim MyImages As New ImageList()
+        MyImages.ImageSize = New Size(16, 16)
+        MyImages.Images.Add(Image.FromFile _
+                (Application.StartupPath & "\folder_close.png"))
+        MyImages.Images.Add(Image.FromFile _
+                (Application.StartupPath & "\folder_open.png"))
+        TreeView1.ImageList = MyImages
+        TreeView1.ImageIndex = 0
+    End Sub
+
+    Private Sub TreeView1_AfterCollapse(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterCollapse
+        TreeView1.BeginUpdate()
+        TreeView1.SelectedImageIndex = 0
+        TreeView1.EndUpdate()
+    End Sub
+
+    Private Sub TreeView1_AfterExpand(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterExpand
+        TreeView1.BeginUpdate()
+        e.Node.ImageIndex = 1
+        TreeView1.EndUpdate()
+    End Sub
 End Class
 
 
