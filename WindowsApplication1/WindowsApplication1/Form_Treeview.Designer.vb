@@ -24,46 +24,26 @@ Partial Class Form_Treeview
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
-        Me.btn_addG = New System.Windows.Forms.Button()
-        Me.btn_delG = New System.Windows.Forms.Button()
         Me.Pnl_grup = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_addG = New System.Windows.Forms.TextBox()
         Me.btn_Grupcsl = New System.Windows.Forms.Button()
         Me.btn_Grupadd = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ContextMenuStrip0 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Pnl_grup.SuspendLayout()
         Me.SuspendLayout()
         '
         'TreeView1
         '
-        Me.TreeView1.Location = New System.Drawing.Point(12, 38)
+        Me.TreeView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TreeView1.Location = New System.Drawing.Point(12, 12)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(354, 328)
+        Me.TreeView1.Size = New System.Drawing.Size(354, 354)
         Me.TreeView1.TabIndex = 8
-        '
-        'btn_addG
-        '
-        Me.btn_addG.Location = New System.Drawing.Point(12, 382)
-        Me.btn_addG.Name = "btn_addG"
-        Me.btn_addG.Size = New System.Drawing.Size(75, 23)
-        Me.btn_addG.TabIndex = 9
-        Me.btn_addG.Text = "add_grup"
-        Me.btn_addG.UseVisualStyleBackColor = True
-        '
-        'btn_delG
-        '
-        Me.btn_delG.Location = New System.Drawing.Point(94, 382)
-        Me.btn_delG.Name = "btn_delG"
-        Me.btn_delG.Size = New System.Drawing.Size(75, 23)
-        Me.btn_delG.TabIndex = 10
-        Me.btn_delG.Text = "Del_grup"
-        Me.btn_delG.UseVisualStyleBackColor = True
         '
         'Pnl_grup
         '
@@ -72,7 +52,7 @@ Partial Class Form_Treeview
         Me.Pnl_grup.Controls.Add(Me.txt_addG)
         Me.Pnl_grup.Controls.Add(Me.btn_Grupcsl)
         Me.Pnl_grup.Controls.Add(Me.btn_Grupadd)
-        Me.Pnl_grup.Location = New System.Drawing.Point(12, 291)
+        Me.Pnl_grup.Location = New System.Drawing.Point(12, 12)
         Me.Pnl_grup.Name = "Pnl_grup"
         Me.Pnl_grup.Size = New System.Drawing.Size(200, 84)
         Me.Pnl_grup.TabIndex = 11
@@ -112,55 +92,22 @@ Partial Class Form_Treeview
         Me.btn_Grupadd.Text = "Add"
         Me.btn_Grupadd.UseVisualStyleBackColor = True
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(252, 373)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 42)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 12)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 20)
-        Me.ComboBox1.TabIndex = 13
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(166, 12)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 21)
-        Me.DateTimePicker1.TabIndex = 15
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 12
-        Me.ListBox1.Location = New System.Drawing.Point(178, 38)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(190, 328)
-        Me.ListBox1.TabIndex = 16
-        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Name = "ContextMenuStrip4"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 26)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
+        'ContextMenuStrip0
+        '
+        Me.ContextMenuStrip0.Name = "ContextMenuStrip4"
+        Me.ContextMenuStrip0.Size = New System.Drawing.Size(61, 4)
         '
         'Form_Treeview
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(380, 427)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(380, 380)
         Me.Controls.Add(Me.Pnl_grup)
-        Me.Controls.Add(Me.btn_delG)
-        Me.Controls.Add(Me.btn_addG)
         Me.Controls.Add(Me.TreeView1)
         Me.Name = "Form_Treeview"
         Me.Text = "BookMark"
@@ -170,17 +117,12 @@ Partial Class Form_Treeview
 
     End Sub
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
-    Friend WithEvents btn_addG As System.Windows.Forms.Button
-    Friend WithEvents btn_delG As System.Windows.Forms.Button
     Friend WithEvents Pnl_grup As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txt_addG As System.Windows.Forms.TextBox
     Friend WithEvents btn_Grupcsl As System.Windows.Forms.Button
     Friend WithEvents btn_Grupadd As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents FontDialog1 As System.Windows.Forms.FontDialog
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ContextMenuStrip0 As System.Windows.Forms.ContextMenuStrip
 End Class
