@@ -43,7 +43,7 @@
 
     Private Sub Form_Treeview_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         initial()
-        LoadNodes(NodeDataFile)
+        'LoadNodes(NodeDataFile)
     End Sub
 
     Private Sub SaveNodes(ByVal filePath As String)
@@ -95,25 +95,78 @@
 #End Region
     Public Sub initial()
         Dim MyImages As New ImageList()
+        TreeView1.ContextMenuStrip = ContextMenuStrip1
         MyImages.ImageSize = New Size(16, 16)
         MyImages.Images.Add(Image.FromFile _
                 (Application.StartupPath & "\folder_close.png"))
         MyImages.Images.Add(Image.FromFile _
                 (Application.StartupPath & "\folder_open.png"))
         TreeView1.ImageList = MyImages
-        TreeView1.ImageIndex = 0
+
+        
+    End Sub
+    Private Sub Add_item(ByVal Int_type As Integer)
+        Select Case Int_type
+            Case Nothing
+                ContextMenuStrip1.Items.Add("New Item")
+            Case 0
+                ContextMenuStrip1.Items.Add("Rename")
+                ContextMenuStrip1.Items.Add("Delete")
+                ContextMenuStrip1.Items.Add("-")
+                ContextMenuStrip1.Items.Add("New")
+            Case 1
+                ContextMenuStrip1.Items.Add("Rename")
+                ContextMenuStrip1.Items.Add("Delete")
+                ContextMenuStrip1.Items.Add("-")
+                ContextMenuStrip1.Items.Add("New")
+            Case 2
+                ContextMenuStrip1.Items.Add("Edit")
+                ContextMenuStrip1.Items.Add("Copy")
+                ContextMenuStrip1.Items.Add("Delete")
+        End Select
     End Sub
 
     Private Sub TreeView1_AfterCollapse(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterCollapse
-        TreeView1.BeginUpdate()
-        TreeView1.SelectedImageIndex = 0
-        TreeView1.EndUpdate()
+        e.Node.ImageIndex = 0
+        Debug.Print(TreeView1.SelectedNode.Level.ToString)
     End Sub
 
     Private Sub TreeView1_AfterExpand(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterExpand
-        TreeView1.BeginUpdate()
         e.Node.ImageIndex = 1
-        TreeView1.EndUpdate()
+    End Sub
+    'Sub treeView1_NodeMouseClick(ByVal sender As Object, ByVal e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
+    '    If e.Node.IsExpanded = True Then
+    '        e.Node.ImageIndex = 1
+    '    Else
+    '        e.Node.ImageIndex = 0
+    '    End If
+    'End Sub 'treeView1_NodeMouseClick
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        TreeView1.Nodes.Clear()
+
+        'parent node 추가
+        For i As Integer = 0 To 2
+            TreeView1.Nodes.Add("M" & i + 1)
+            TreeView1.Nodes(i).ContextMenuStrip = ContextMenuStrip1
+            'Debug.Print(TreeView1.Nodes(i).Level.ToString)
+        Next
+
+        For i As Integer = 0 To 3
+            TreeView1.Nodes(0).Nodes.Add("P" & i)
+            TreeView1.Nodes(0).Nodes(i).ContextMenuStrip = ContextMenuStrip1
+            TreeView1.Nodes(0).Nodes(0).Nodes.Add("P" & i)
+            TreeView1.Nodes(0).Nodes(0).Nodes(i).ContextMenuStrip = ContextMenuStrip1
+            'Debug.Print(TreeView1.Nodes(0).Nodes(0).Nodes(i).Level.ToString)
+            'Debug.Print(TreeView1.Nodes(0).Nodes(i).Level.ToString)
+
+        Next
+    End Sub
+
+
+
+    Private Sub TreeView1_NodeMouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
+
     End Sub
 End Class
 
