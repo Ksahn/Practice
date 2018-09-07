@@ -22,6 +22,9 @@ Public Class Form_main
         cpuvl = Math.Truncate(PerformanceCounter1.NextValue())
         RichTextBox1.Text = "CPU : " & cpuvl & "%" & " MEMORY : " & active & "KB" & vbCrLf & RichTextBox1.Text
         CPUPB.Value = cpuvl
+        If cpuvl > 50 Then
+
+        End If
         MPB.Value = Math.Truncate(CDbl(CDbl(active * 1024) / ram) * 100)
         If RichTextBox1.Text.Length > 10000 Then
             RichTextBox1.Text = ""

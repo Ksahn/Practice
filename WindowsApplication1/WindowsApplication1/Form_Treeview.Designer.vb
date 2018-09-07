@@ -32,6 +32,7 @@ Partial Class Form_Treeview
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ContextMenuStrip0 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.txt_rename = New System.Windows.Forms.TextBox()
         Me.Pnl_grup.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -102,11 +103,21 @@ Partial Class Form_Treeview
         Me.ContextMenuStrip0.Name = "ContextMenuStrip4"
         Me.ContextMenuStrip0.Size = New System.Drawing.Size(61, 4)
         '
+        'txt_rename
+        '
+        Me.txt_rename.Location = New System.Drawing.Point(218, 25)
+        Me.txt_rename.Name = "txt_rename"
+        Me.txt_rename.Size = New System.Drawing.Size(100, 21)
+        Me.txt_rename.TabIndex = 12
+        Me.txt_rename.TabStop = False
+        Me.txt_rename.Visible = False
+        '
         'Form_Treeview
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(380, 380)
+        Me.Controls.Add(Me.txt_rename)
         Me.Controls.Add(Me.Pnl_grup)
         Me.Controls.Add(Me.TreeView1)
         Me.Name = "Form_Treeview"
@@ -114,6 +125,7 @@ Partial Class Form_Treeview
         Me.Pnl_grup.ResumeLayout(False)
         Me.Pnl_grup.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
@@ -125,4 +137,5 @@ Partial Class Form_Treeview
     Friend WithEvents FontDialog1 As System.Windows.Forms.FontDialog
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ContextMenuStrip0 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents txt_rename As System.Windows.Forms.TextBox
 End Class

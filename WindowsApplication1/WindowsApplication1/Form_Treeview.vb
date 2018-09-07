@@ -79,6 +79,10 @@
                 TreeView1.Nodes(i).ContextMenuStrip = ContextMenuStrip1
                 For j As Integer = 0 To TreeView1.Nodes(i).Nodes.Count - 1
                     TreeView1.Nodes(i).Nodes(j).ContextMenuStrip = ContextMenuStrip1
+                    If TreeView1.Nodes(i).Nodes(j).GetNodeCount(True) = 0 Then
+                        TreeView1.Nodes(i).Nodes(j).ImageIndex = 2
+                        TreeView1.Nodes(i).Nodes(j).SelectedImageIndex = 2
+                    End If
                     For k As Integer = 0 To TreeView1.Nodes(i).Nodes(j).Nodes.Count - 1
                         TreeView1.Nodes(i).Nodes(j).Nodes(k).ContextMenuStrip = ContextMenuStrip1
                         TreeView1.Nodes(i).Nodes(j).Nodes(k).ImageIndex = 2
@@ -107,8 +111,8 @@
                 ContextMenuStrip1.Items.Add("-")
                 ContextMenuStrip1.Items.Add("New")
             Case 2
+                ContextMenuStrip1.Items.Add("Rename")
                 ContextMenuStrip1.Items.Add("Edit")
-                ContextMenuStrip1.Items.Add("Copy")
                 ContextMenuStrip1.Items.Add("Delete")
         End Select
     End Sub
@@ -189,6 +193,12 @@
                 Dim Activenode As TreeNode
                 Activenode = TreeView1.SelectedNode
                 TreeView1.SelectedNode.Nodes.Remove(Activenode)
+            Case "Rename"
+                txt_rename.Location = Me.PointToClient(MousePosition)
+                txt_rename.Text = ""
+                txt_rename.Visible = True
+            Case "Edit"
+                Form_edit.Show()
         End Select
         
     End Sub
@@ -230,12 +240,31 @@
                 TreeView1.SelectedNode.Nodes(Nodes_Count - 1).ContextMenuStrip = ContextMenuStrip1
                 TreeView1.SelectedNode.Nodes(Nodes_Count - 1).ImageIndex = 2
                 TreeView1.SelectedNode.Nodes(Nodes_Count - 1).SelectedImageIndex = 2
+                If Not TreeView1.SelectedNode.GetNodeCount(True) = 0 Then
+                    If TreeView1.SelectedNode.IsExpanded = True Then
+                        TreeView1.SelectedNode.ImageIndex = 1
+                        TreeView1.SelectedNode.SelectedImageIndex = 1
+                    Else
+                        TreeView1.SelectedNode.ImageIndex = 0
+                        TreeView1.SelectedNode.SelectedImageIndex = 0
+                    End If
+                End If
             End If
             number = Nothing
         End If
         Pnl_grup.Visible = False
     End Sub
 #End Region
+
+    Private Sub txt_rename_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_rename.KeyDown
+        Select e.KeyCode
+            Case Keys.Enter
+                TreeView1.SelectedNode.Text = txt_rename.Text
+                txt_rename.Visible = False
+            Case Keys.Escape
+                txt_rename.Visible = False
+        End Select
+    End Sub
 End Class
 
 
