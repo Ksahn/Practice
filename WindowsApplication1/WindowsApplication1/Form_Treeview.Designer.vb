@@ -33,7 +33,9 @@ Partial Class Form_Treeview
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ContextMenuStrip0 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.txt_rename = New System.Windows.Forms.TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Pnl_grup.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TreeView1
@@ -43,7 +45,7 @@ Partial Class Form_Treeview
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TreeView1.Location = New System.Drawing.Point(12, 12)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(354, 354)
+        Me.TreeView1.Size = New System.Drawing.Size(187, 354)
         Me.TreeView1.TabIndex = 8
         '
         'Pnl_grup
@@ -53,7 +55,7 @@ Partial Class Form_Treeview
         Me.Pnl_grup.Controls.Add(Me.txt_addG)
         Me.Pnl_grup.Controls.Add(Me.btn_Grupcsl)
         Me.Pnl_grup.Controls.Add(Me.btn_Grupadd)
-        Me.Pnl_grup.Location = New System.Drawing.Point(12, 12)
+        Me.Pnl_grup.Location = New System.Drawing.Point(12, 25)
         Me.Pnl_grup.Name = "Pnl_grup"
         Me.Pnl_grup.Size = New System.Drawing.Size(200, 84)
         Me.Pnl_grup.TabIndex = 11
@@ -112,18 +114,29 @@ Partial Class Form_Treeview
         Me.txt_rename.TabStop = False
         Me.txt_rename.Visible = False
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(211, 12)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 23
+        Me.DataGridView1.Size = New System.Drawing.Size(525, 354)
+        Me.DataGridView1.TabIndex = 13
+        '
         'Form_Treeview
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(380, 380)
+        Me.ClientSize = New System.Drawing.Size(748, 380)
         Me.Controls.Add(Me.txt_rename)
         Me.Controls.Add(Me.Pnl_grup)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.TreeView1)
         Me.Name = "Form_Treeview"
         Me.Text = "BookMark"
         Me.Pnl_grup.ResumeLayout(False)
         Me.Pnl_grup.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -138,4 +151,5 @@ Partial Class Form_Treeview
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ContextMenuStrip0 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents txt_rename As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 End Class

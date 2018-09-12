@@ -40,4 +40,8 @@ Public Class Form_main
     Private Sub btn_treeview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_treeview.Click
         Form_Treeview.ShowDialog()
     End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Form_PictureBox.ShowDialog()
+    End Sub
 End Class

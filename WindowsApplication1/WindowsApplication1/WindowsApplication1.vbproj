@@ -78,6 +78,12 @@
     <Compile Include="Form_edit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_PictureBox.Designer.vb">
+      <DependentUpon>Form_PictureBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_PictureBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form_Treeview.Designer.vb">
       <DependentUpon>Form_Treeview.vb</DependentUpon>
     </Compile>
@@ -116,6 +122,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form_edit.resx">
       <DependentUpon>Form_edit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_PictureBox.resx">
+      <DependentUpon>Form_PictureBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Treeview.resx">
       <DependentUpon>Form_Treeview.vb</DependentUpon>

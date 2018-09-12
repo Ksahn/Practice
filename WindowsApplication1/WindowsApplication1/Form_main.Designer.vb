@@ -32,6 +32,7 @@ Partial Class Form_main
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MPB = New System.Windows.Forms.ProgressBar()
         Me.btn_treeview = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PerformanceCounter1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -118,11 +119,21 @@ Partial Class Form_main
         Me.btn_treeview.Text = "Treeview"
         Me.btn_treeview.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(194, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "PictureBox"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(498, 503)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btn_treeview)
         Me.Controls.Add(Me.MPB)
         Me.Controls.Add(Me.Label2)
@@ -146,5 +157,6 @@ Partial Class Form_main
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents MPB As System.Windows.Forms.ProgressBar
     Friend WithEvents btn_treeview As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class

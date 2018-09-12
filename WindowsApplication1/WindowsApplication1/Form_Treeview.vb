@@ -1,10 +1,29 @@
-﻿Public Class Form_Treeview
+﻿Imports System.Data.SqlClient
+Imports System.Data
+
+Public Class Form_Treeview
     Private NodeDataFile As String = IO.Path.Combine(Application.StartupPath, "NodeData.dat")
     Dim number As Integer
+    Dim sql_loc As String = "Data Source=RD-PC; Initial Catalog=PRACTICE; Persist Security Info=True; User ID=sa; Password=express2345"
+    Dim sql_conn As New SqlConnection(sql_loc)
+    Dim sql_command As SqlCommand
+    Dim sql_adapta As New SqlDataAdapter
+    Dim sql As String
+
 
     Private Sub Form_Treeview_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         initial()
         LoadNodes(NodeDataFile)
+        Connnect_sql()
+    End Sub
+
+    Public Sub Connnect_sql()
+        Try
+            sql_conn.Open()
+
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString())
+        End Try
     End Sub
 
     Public Sub initial()
@@ -30,6 +49,7 @@
 #Region "save load node"
     Private Sub Form_Treeview_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         SaveNodes(NodeDataFile)
+        sql_conn.Close()
     End Sub
 
     Private Sub SaveNodes(ByVal filePath As String)
@@ -51,7 +71,6 @@
             Dim bf As New Runtime.Serialization.Formatters.Binary.BinaryFormatter
 
             bf.Serialize(fs, tmp)
-
         End Using
 
     End Sub
@@ -90,14 +109,14 @@
                     Next
                 Next
             Next
-            
+
         Catch
         End Try
     End Sub
 
 #End Region
 #Region "Node events"
-    
+
     Private Sub Add_item(ByVal Int_type As Integer)
         Select Case Int_type
             Case 0
@@ -192,6 +211,23 @@
             Case "Delete"
                 Dim Activenode As TreeNode
                 Activenode = TreeView1.SelectedNode
+                Select Case TreeView1.SelectedNode.Level
+                    Case 0
+                        sql = "DELETE FROM COMPANY WHERE id='" & TreeView1.SelectedNode.Index & _
+                            "' DELETE FROM DEPARTMENT WHERE id1='" & TreeView1.SelectedNode.Index & _
+                            "' DELETE FROM PEOPLE WHERE id1='" & TreeView1.SelectedNode.Index & "'"
+                        sql_adapta.InsertCommand = New SqlCommand(sql, sql_conn)
+                        sql_adapta.InsertCommand.ExecuteNonQuery()
+                    Case 1
+                        sql = "DELETE FROM DEPARTMENT WHERE id='" & TreeView1.SelectedNode.Index & _
+                            "' DELETE FROM PEOPLE WHERE id2='" & TreeView1.SelectedNode.Index & "'"
+                        sql_adapta.InsertCommand = New SqlCommand(sql, sql_conn)
+                        sql_adapta.InsertCommand.ExecuteNonQuery()
+                    Case 2
+                        sql = "DELETE FROM PEOPLE WHERE id='" & TreeView1.SelectedNode.Index & "'"
+                        sql_adapta.InsertCommand = New SqlCommand(sql, sql_conn)
+                        sql_adapta.InsertCommand.ExecuteNonQuery()
+                End Select
                 TreeView1.SelectedNode.Nodes.Remove(Activenode)
             Case "Rename"
                 txt_rename.Location = Me.PointToClient(MousePosition)
@@ -200,7 +236,7 @@
             Case "Edit"
                 Form_edit.Show()
         End Select
-        
+
     End Sub
 
     Private Sub btn_Grupcsl_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Grupcsl.Click, btn_Grupadd.Click
@@ -233,10 +269,22 @@
                 TreeView1.Nodes.Add(txt_addG.Text)
                 Nodes_Count = TreeView1.Nodes.Count
                 TreeView1.Nodes(Nodes_Count - 1).ContextMenuStrip = ContextMenuStrip1
+                sql = "INSERT INTO COMPANY(id,CompanyName) VALUES('" & Nodes_Count - 1 & "','" & txt_addG.Text & "')"
+                sql_adapta.InsertCommand = New SqlCommand(sql, sql_conn)
+                sql_adapta.InsertCommand.ExecuteNonQuery()
 
             Else
                 TreeView1.SelectedNode.Nodes.Add(txt_addG.Text)
                 Nodes_Count = TreeView1.SelectedNode.Nodes.Count
+                If TreeView1.SelectedNode.Level = 0 Then
+                    sql = "INSERT INTO DEPARTMENT(id,id1,DepartmentName) VALUES('" & Nodes_Count - 1 & "','" & TreeView1.SelectedNode.Index & "','" & txt_addG.Text & "')"
+                    sql_adapta.InsertCommand = New SqlCommand(sql, sql_conn)
+                    sql_adapta.InsertCommand.ExecuteNonQuery()
+                Else
+                    sql = "INSERT INTO PEOPLE(id,id1,id2,PeopleName,Position) VALUES('" & Nodes_Count - 1 & "','" & TreeView1.SelectedNode.Parent.Index & "','" & TreeView1.SelectedNode.Index & "','" & Split(txt_addG.Text)(0) & "','" & Split(txt_addG.Text)(1) & "')"
+                    sql_adapta.InsertCommand = New SqlCommand(sql, sql_conn)
+                    sql_adapta.InsertCommand.ExecuteNonQuery()
+                End If
                 TreeView1.SelectedNode.Nodes(Nodes_Count - 1).ContextMenuStrip = ContextMenuStrip1
                 TreeView1.SelectedNode.Nodes(Nodes_Count - 1).ImageIndex = 2
                 TreeView1.SelectedNode.Nodes(Nodes_Count - 1).SelectedImageIndex = 2
@@ -249,7 +297,7 @@
                         TreeView1.SelectedNode.SelectedImageIndex = 0
                     End If
                 End If
-            End If
+                End If
             number = Nothing
         End If
         Pnl_grup.Visible = False
@@ -257,7 +305,7 @@
 #End Region
 
     Private Sub txt_rename_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_rename.KeyDown
-        Select e.KeyCode
+        Select Case e.KeyCode
             Case Keys.Enter
                 TreeView1.SelectedNode.Text = txt_rename.Text
                 txt_rename.Visible = False

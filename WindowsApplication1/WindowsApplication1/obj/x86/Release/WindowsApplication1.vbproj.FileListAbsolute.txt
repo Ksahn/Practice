@@ -20,3 +20,4 @@ D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Release\WindowsAp
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Release\WindowsApplication1.pdb
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Release\WindowsApplication1.Form_Treeview.resources
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Release\WindowsApplication1.Form_edit.resources
+D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Release\WindowsApplication1.Form_PictureBox.resources
