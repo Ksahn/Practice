@@ -7,9 +7,19 @@ Public Class Form_main
         PerformanceCounter1.InstanceName = "_Total"
     End Sub
     Private Sub btn_WB_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_WB.Click
-        Form_webBrowser.ShowDialog()
+        Form_webBrowser.Show()
+        Me.Hide()
     End Sub
 
+    Private Sub btn_treeview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_treeview.Click
+        Form_Treeview.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Form_PictureBox.Show()
+        Me.Hide()
+    End Sub
     Private Sub Form_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Initial()
         Timer1.Start()
@@ -37,11 +47,4 @@ Public Class Form_main
 
     End Sub
 
-    Private Sub btn_treeview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_treeview.Click
-        Form_Treeview.ShowDialog()
-    End Sub
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Form_PictureBox.ShowDialog()
-    End Sub
 End Class

@@ -13,11 +13,13 @@ D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsAppl
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.pdb
 D:\gitPractice\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe
 D:\gitPractice\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
-D:\gitPractice\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Form_main.resources
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Form_webBrowser.resources
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Resources.resources
-D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Form_Treeview.resources
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Form_edit.resources
 D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Form_PictureBox.resources
+D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\gitPractice\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\gitPractice\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml

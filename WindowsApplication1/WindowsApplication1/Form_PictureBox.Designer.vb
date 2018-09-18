@@ -36,14 +36,12 @@ Partial Class Form_PictureBox
         Me.Button2 = New System.Windows.Forms.Button()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'VScrollBar1
@@ -83,17 +81,17 @@ Partial Class Form_PictureBox
         '
         'PictureBox3
         '
-        Me.PictureBox3.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(574, 384)
+        Me.PictureBox3.Size = New System.Drawing.Size(580, 390)
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
         '
         'PictureBox4
         '
-        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox4.Location = New System.Drawing.Point(617, 207)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(284, 190)
+        Me.PictureBox4.Size = New System.Drawing.Size(290, 195)
         Me.PictureBox4.TabIndex = 1
         Me.PictureBox4.TabStop = False
         '
@@ -150,20 +148,11 @@ Partial Class Form_PictureBox
         Me.Panel1.Size = New System.Drawing.Size(580, 390)
         Me.Panel1.TabIndex = 12
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.PictureBox4)
-        Me.Panel2.Location = New System.Drawing.Point(617, 207)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(290, 195)
-        Me.Panel2.TabIndex = 13
-        '
         'Form_PictureBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(919, 474)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -175,6 +164,7 @@ Partial Class Form_PictureBox
         Me.Controls.Add(Me.TrackBar1)
         Me.Controls.Add(Me.HScrollBar1)
         Me.Controls.Add(Me.VScrollBar1)
+        Me.Controls.Add(Me.PictureBox4)
         Me.Name = "Form_PictureBox"
         Me.Text = "Form_PictureBox"
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -183,7 +173,6 @@ Partial Class Form_PictureBox
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -202,5 +191,4 @@ Partial Class Form_PictureBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
 End Class
