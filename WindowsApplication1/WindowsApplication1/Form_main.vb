@@ -8,17 +8,17 @@ Public Class Form_main
     End Sub
     Private Sub btn_WB_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_WB.Click
         Form_webBrowser.Show()
-        Me.Hide()
+
     End Sub
 
     Private Sub btn_treeview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_treeview.Click
         Form_Treeview.Show()
-        Me.Hide()
+
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Form_PictureBox.Show()
-        Me.Hide()
+
     End Sub
     Private Sub Form_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Initial()
@@ -47,4 +47,16 @@ Public Class Form_main
 
     End Sub
 
+    'Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    '    Try
+    '        Dim bit_temp As New Bitmap("C:\Users\Public\Pictures\Sample Pictures\Desert.JPG")
+
+    '        Dim ASDASD As String = ""
+
+
+
+    '    Catch ex As Exception
+
+    '    End Try
+    'End Sub
 End Class

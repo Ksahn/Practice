@@ -22,73 +22,54 @@ Partial Class Form_PictureBox
     '코드 편집기를 사용하여 수정하지 마십시오.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
-        Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
-        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar2 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar3 = New System.Windows.Forms.TrackBar()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.TrackBar_R = New System.Windows.Forms.TrackBar()
+        Me.TrackBar_G = New System.Windows.Forms.TrackBar()
+        Me.TrackBar_B = New System.Windows.Forms.TrackBar()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btn_select = New System.Windows.Forms.Button()
+        Me.btn_claer = New System.Windows.Forms.Button()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btn_save = New System.Windows.Forms.Button()
+        CType(Me.TrackBar_R, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar_G, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar_B, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'VScrollBar1
+        'TrackBar_R
         '
-        Me.VScrollBar1.Location = New System.Drawing.Point(595, 12)
-        Me.VScrollBar1.Name = "VScrollBar1"
-        Me.VScrollBar1.Size = New System.Drawing.Size(18, 390)
-        Me.VScrollBar1.TabIndex = 2
+        Me.TrackBar_R.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TrackBar_R.Location = New System.Drawing.Point(660, 17)
+        Me.TrackBar_R.Name = "TrackBar_R"
+        Me.TrackBar_R.Size = New System.Drawing.Size(229, 45)
+        Me.TrackBar_R.TabIndex = 4
         '
-        'HScrollBar1
+        'TrackBar_G
         '
-        Me.HScrollBar1.Location = New System.Drawing.Point(12, 405)
-        Me.HScrollBar1.Name = "HScrollBar1"
-        Me.HScrollBar1.Size = New System.Drawing.Size(580, 19)
-        Me.HScrollBar1.TabIndex = 3
+        Me.TrackBar_G.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TrackBar_G.Location = New System.Drawing.Point(660, 68)
+        Me.TrackBar_G.Name = "TrackBar_G"
+        Me.TrackBar_G.Size = New System.Drawing.Size(229, 45)
+        Me.TrackBar_G.TabIndex = 5
         '
-        'TrackBar1
+        'TrackBar_B
         '
-        Me.TrackBar1.Location = New System.Drawing.Point(660, 17)
-        Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(229, 45)
-        Me.TrackBar1.TabIndex = 4
-        '
-        'TrackBar2
-        '
-        Me.TrackBar2.Location = New System.Drawing.Point(660, 68)
-        Me.TrackBar2.Name = "TrackBar2"
-        Me.TrackBar2.Size = New System.Drawing.Size(229, 45)
-        Me.TrackBar2.TabIndex = 5
-        '
-        'TrackBar3
-        '
-        Me.TrackBar3.Location = New System.Drawing.Point(660, 119)
-        Me.TrackBar3.Name = "TrackBar3"
-        Me.TrackBar3.Size = New System.Drawing.Size(229, 45)
-        Me.TrackBar3.TabIndex = 6
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(580, 390)
-        Me.PictureBox3.TabIndex = 0
-        Me.PictureBox3.TabStop = False
+        Me.TrackBar_B.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TrackBar_B.Location = New System.Drawing.Point(660, 119)
+        Me.TrackBar_B.Name = "TrackBar_B"
+        Me.TrackBar_B.Size = New System.Drawing.Size(229, 45)
+        Me.TrackBar_B.TabIndex = 6
         '
         'PictureBox4
         '
+        Me.PictureBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox4.Location = New System.Drawing.Point(617, 207)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(290, 195)
@@ -97,6 +78,7 @@ Partial Class Form_PictureBox
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(640, 22)
         Me.Label1.Name = "Label1"
@@ -106,6 +88,7 @@ Partial Class Form_PictureBox
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(640, 73)
         Me.Label2.Name = "Label2"
@@ -115,6 +98,7 @@ Partial Class Form_PictureBox
         '
         'Label3
         '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(641, 124)
         Me.Label3.Name = "Label3"
@@ -122,73 +106,95 @@ Partial Class Form_PictureBox
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "B"
         '
-        'Button1
+        'btn_select
         '
-        Me.Button1.Location = New System.Drawing.Point(226, 430)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 33)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Select Image"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_select.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btn_select.Location = New System.Drawing.Point(226, 430)
+        Me.btn_select.Name = "btn_select"
+        Me.btn_select.Size = New System.Drawing.Size(80, 33)
+        Me.btn_select.TabIndex = 10
+        Me.btn_select.Text = "Select Image"
+        Me.btn_select.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btn_claer
         '
-        Me.Button2.Location = New System.Drawing.Point(312, 430)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 33)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Clear Image"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btn_claer.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btn_claer.Location = New System.Drawing.Point(312, 430)
+        Me.btn_claer.Name = "btn_claer"
+        Me.btn_claer.Size = New System.Drawing.Size(80, 33)
+        Me.btn_claer.TabIndex = 11
+        Me.btn_claer.Text = "Clear Image"
+        Me.btn_claer.UseVisualStyleBackColor = True
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(580, 390)
+        Me.PictureBox3.TabIndex = 0
+        Me.PictureBox3.TabStop = False
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.AutoScroll = True
         Me.Panel1.Controls.Add(Me.PictureBox3)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(580, 390)
+        Me.Panel1.Size = New System.Drawing.Size(600, 410)
         Me.Panel1.TabIndex = 12
+        '
+        'btn_save
+        '
+        Me.btn_save.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btn_save.Location = New System.Drawing.Point(398, 430)
+        Me.btn_save.Name = "btn_save"
+        Me.btn_save.Size = New System.Drawing.Size(75, 33)
+        Me.btn_save.TabIndex = 13
+        Me.btn_save.Text = "Save Image"
+        Me.btn_save.UseVisualStyleBackColor = True
         '
         'Form_PictureBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(919, 474)
+        Me.Controls.Add(Me.btn_save)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_claer)
+        Me.Controls.Add(Me.btn_select)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TrackBar3)
-        Me.Controls.Add(Me.TrackBar2)
-        Me.Controls.Add(Me.TrackBar1)
-        Me.Controls.Add(Me.HScrollBar1)
-        Me.Controls.Add(Me.VScrollBar1)
+        Me.Controls.Add(Me.TrackBar_B)
+        Me.Controls.Add(Me.TrackBar_G)
+        Me.Controls.Add(Me.TrackBar_R)
         Me.Controls.Add(Me.PictureBox4)
         Me.Name = "Form_PictureBox"
         Me.Text = "Form_PictureBox"
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar_R, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar_G, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar_B, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents VScrollBar1 As System.Windows.Forms.VScrollBar
-    Friend WithEvents HScrollBar1 As System.Windows.Forms.HScrollBar
-    Friend WithEvents TrackBar1 As System.Windows.Forms.TrackBar
-    Friend WithEvents TrackBar2 As System.Windows.Forms.TrackBar
-    Friend WithEvents TrackBar3 As System.Windows.Forms.TrackBar
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents TrackBar_R As System.Windows.Forms.TrackBar
+    Friend WithEvents TrackBar_G As System.Windows.Forms.TrackBar
+    Friend WithEvents TrackBar_B As System.Windows.Forms.TrackBar
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btn_select As System.Windows.Forms.Button
+    Friend WithEvents btn_claer As System.Windows.Forms.Button
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents btn_save As System.Windows.Forms.Button
 End Class
