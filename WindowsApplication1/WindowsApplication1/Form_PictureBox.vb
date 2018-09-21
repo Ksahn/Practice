@@ -24,7 +24,7 @@ Public Class Form_PictureBox
 
 
     End Sub
-    Private Sub DrawRect(ByVal loc_x As Integer, ByVal loc_y As Integer, ByVal width_x As Integer, ByVal height_y As Integer)
+    Private Sub DrawRect(ByVal loc_x As Double, ByVal loc_y As Double, ByVal width_x As Double, ByVal height_y As Double)
 
         Dim g As Graphics = PictureBox4.CreateGraphics()
         Dim GreenPen As New Pen(Brushes.Green, 2)
@@ -220,7 +220,7 @@ Public Class Form_PictureBox
 
     Private Sub btn_save_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_save.Click
         If Not PictureBox3.Image Is Nothing Then
-            PictureBox3.Image.Save("C:\Users\RD\Desktop\해오라기\default.jpg")
+            PictureBox3.Image.Save(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\default.jpg")
         End If
     End Sub
 End Class
