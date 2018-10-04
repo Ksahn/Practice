@@ -22,7 +22,7 @@ Public Class Cls_RGBFilter
             Red += RedChange
             Green += GreenChange
             Blue += BlueChange
-
+            '0<rgb<255
             Red = Math.Min(Math.Max(Red, 0), 255)
             Green = Math.Min(Math.Max(Green, 0), 255)
             Blue = Math.Min(Math.Max(Blue, 0), 255)

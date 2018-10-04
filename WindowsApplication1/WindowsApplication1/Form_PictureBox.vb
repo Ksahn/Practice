@@ -8,9 +8,10 @@ Public Class Form_PictureBox
     Dim i As Integer = 0
     Dim M_down As New Point
     Dim M_up As New Point
-
+    Dim img As Boolean
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_select.Click
+        'Img File Open
         Dim OpenFileDialog1 As New OpenFileDialog
 
         str = ""
@@ -20,12 +21,10 @@ Public Class Form_PictureBox
         OpenFileDialog1.ShowDialog()
         str = OpenFileDialog1.FileName
         PictureBox3.ImageLocation = str
-
-
-
+        img = True
     End Sub
     Private Sub DrawRect(ByVal loc_x As Double, ByVal loc_y As Double, ByVal width_x As Double, ByVal height_y As Double)
-
+        'Navigate Rect
         Dim g As Graphics = PictureBox4.CreateGraphics()
         Dim GreenPen As New Pen(Brushes.Green, 2)
         Dim rect As New Rectangle(loc_x, loc_y, width_x, height_y)
@@ -84,113 +83,120 @@ Public Class Form_PictureBox
 
 
     Private Sub PictureBox3_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox3.MouseDown
-
-        PictureBox3.ImageLocation = str
-        'Debug.Print(e.Location().ToString)
-        M_down.X = e.X
-        M_down.Y = e.Y
-        ch = True
+        'save click point
+        If img = True Then
+            PictureBox3.ImageLocation = str
+            'Debug.Print(e.Location().ToString)
+            M_down.X = e.X
+            M_down.Y = e.Y
+            ch = True
+        End If
     End Sub
 
     Private Sub PictureBox3_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox3.MouseMove
-        If ch = True Then
-            PictureBox3.Refresh()
-            Dim g As Graphics = PictureBox3.CreateGraphics
-            Dim fnt As New Font("Arial", 16)
-            'M_down.X, M_down.Y + (e.Y - M_down.Y) + 3
-            If e.X - M_down.X >= 0 And e.Y - M_down.Y >= 0 Then
-                g.DrawRectangle(Pens.Crimson, M_down.X, M_down.Y, e.X - M_down.X, e.Y - M_down.Y)
-                g.DrawString("X:" & e.X - M_down.X & " Y:" & e.Y - M_down.Y, fnt, Brushes.Black, M_down)
-            ElseIf e.X - M_down.X <= 0 And e.Y - M_down.Y < 0 Then
-                g.DrawRectangle(Pens.Crimson, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y), -(e.X - M_down.X), -(e.Y - M_down.Y))
-                g.DrawString("X:" & -(e.X - M_down.X) & " Y:" & -(e.Y - M_down.Y), fnt, Brushes.Black, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y))
-            ElseIf e.X - M_down.X <= 0 Then
-                g.DrawRectangle(Pens.Crimson, M_down.X + (e.X - M_down.X), M_down.Y, -(e.X - M_down.X), e.Y - M_down.Y)
-                g.DrawString("X:" & -(e.X - M_down.X) & " Y:" & e.Y - M_down.Y, fnt, Brushes.Black, M_down.X + (e.X - M_down.X), M_down.Y)
-            ElseIf e.Y - M_down.Y <= 0 Then
-                g.DrawRectangle(Pens.Crimson, M_down.X, M_down.Y + (e.Y - M_down.Y), e.X - M_down.X, -(e.Y - M_down.Y))
-                g.DrawString("X:" & e.X - M_down.X & " Y:" & -(e.Y - M_down.Y), fnt, Brushes.Black, M_down.X, M_down.Y + (e.Y - M_down.Y))
+        'Following Mouse Rectangle
+        If img = True Then
+            If ch = True Then
+                PictureBox3.Refresh()
+                Dim g As Graphics = PictureBox3.CreateGraphics
+                Dim fnt As New Font("Arial", 16)
+                'M_down.X, M_down.Y + (e.Y - M_down.Y) + 3
+                If e.X - M_down.X >= 0 And e.Y - M_down.Y >= 0 Then
+                    g.DrawRectangle(Pens.Crimson, M_down.X, M_down.Y, e.X - M_down.X, e.Y - M_down.Y)
+                    g.DrawString("X:" & e.X - M_down.X & " Y:" & e.Y - M_down.Y, fnt, Brushes.Black, M_down)
+                ElseIf e.X - M_down.X <= 0 And e.Y - M_down.Y < 0 Then
+                    g.DrawRectangle(Pens.Crimson, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y), -(e.X - M_down.X), -(e.Y - M_down.Y))
+                    g.DrawString("X:" & -(e.X - M_down.X) & " Y:" & -(e.Y - M_down.Y), fnt, Brushes.Black, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y))
+                ElseIf e.X - M_down.X <= 0 Then
+                    g.DrawRectangle(Pens.Crimson, M_down.X + (e.X - M_down.X), M_down.Y, -(e.X - M_down.X), e.Y - M_down.Y)
+                    g.DrawString("X:" & -(e.X - M_down.X) & " Y:" & e.Y - M_down.Y, fnt, Brushes.Black, M_down.X + (e.X - M_down.X), M_down.Y)
+                ElseIf e.Y - M_down.Y <= 0 Then
+                    g.DrawRectangle(Pens.Crimson, M_down.X, M_down.Y + (e.Y - M_down.Y), e.X - M_down.X, -(e.Y - M_down.Y))
+                    g.DrawString("X:" & e.X - M_down.X & " Y:" & -(e.Y - M_down.Y), fnt, Brushes.Black, M_down.X, M_down.Y + (e.Y - M_down.Y))
+                End If
+                'Debug.Print(e.X - M_down.X)
+                'Debug.Print(e.Y - M_down.Y)
             End If
-            Debug.Print(e.X - M_down.X)
-            Debug.Print(e.Y - M_down.Y)
         End If
     End Sub
 
     Private Sub PictureBox3_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox3.MouseUp
-        PictureBox3.Invalidate()
+        If img = True Then
+            PictureBox3.Invalidate()
 
-        ch = False
-        M_up.X = e.X
-        M_up.Y = e.Y
+            ch = False
+            M_up.X = e.X
+            M_up.Y = e.Y
 
-        'PictureBox3.CreateGraphics
+            'PictureBox3.CreateGraphics
 
-        Dim g As Graphics = Graphics.FromImage(PictureBox3.Image)
+            Dim g As Graphics = Graphics.FromImage(PictureBox3.Image)
 
-        Dim tempBitmap As Bitmap = New Bitmap(PictureBox3.ClientSize.Width, PictureBox3.ClientSize.Height)
-        PictureBox3.DrawToBitmap(tempBitmap, PictureBox3.ClientRectangle)
-        Dim size As Size
-        Dim Save_image As Image
-        size.Height = Math.Abs(e.Y - M_down.Y)
-        size.Width = Math.Abs(e.X - M_down.X)
+            Dim tempBitmap As Bitmap = New Bitmap(PictureBox3.ClientSize.Width, PictureBox3.ClientSize.Height)
+            PictureBox3.DrawToBitmap(tempBitmap, PictureBox3.ClientRectangle)
+            Dim size As Size
+            Dim Save_image As Image
+            size.Height = Math.Abs(e.Y - M_down.Y)
+            size.Width = Math.Abs(e.X - M_down.X)
 
-        Try
-            Dim target As New Bitmap(Math.Abs(e.X - M_down.X), Math.Abs(e.Y - M_down.Y))
-        
-        ''선택된 공간 빨간 네모 채움
-        'If e.X - M_down.X >= 0 And e.Y - M_down.Y >= 0 Then
-        '    g.FillRectangle(Brushes.Crimson, M_down.X, M_down.Y, e.X - M_down.X, e.Y - M_down.Y)
-        'ElseIf e.X - M_down.X <= 0 And e.Y - M_down.Y <= 0 Then
-        '    g.FillRectangle(Brushes.Crimson, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y), -(e.X - M_down.X), -(e.Y - M_down.Y))
-        'ElseIf e.X - M_down.X <= 0 Then
-        '    g.FillRectangle(Brushes.Crimson, M_down.X + (e.X - M_down.X), M_down.Y, -(e.X - M_down.X), e.Y - M_down.Y)
-        'ElseIf e.Y - M_down.Y <= 0 Then
-        '    g.FillRectangle(Brushes.Crimson, M_down.X, M_down.Y + (e.Y - M_down.Y), e.X - M_down.X, -(e.Y - M_down.Y))
-        'End If
+            Try
+                Dim target As New Bitmap(Math.Abs(e.X - M_down.X), Math.Abs(e.Y - M_down.Y))
 
-        '선택한 이미지 변환
+                ''선택된 공간 빨간 네모 채움
+                'If e.X - M_down.X >= 0 And e.Y - M_down.Y >= 0 Then
+                '    g.FillRectangle(Brushes.Crimson, M_down.X, M_down.Y, e.X - M_down.X, e.Y - M_down.Y)
+                'ElseIf e.X - M_down.X <= 0 And e.Y - M_down.Y <= 0 Then
+                '    g.FillRectangle(Brushes.Crimson, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y), -(e.X - M_down.X), -(e.Y - M_down.Y))
+                'ElseIf e.X - M_down.X <= 0 Then
+                '    g.FillRectangle(Brushes.Crimson, M_down.X + (e.X - M_down.X), M_down.Y, -(e.X - M_down.X), e.Y - M_down.Y)
+                'ElseIf e.Y - M_down.Y <= 0 Then
+                '    g.FillRectangle(Brushes.Crimson, M_down.X, M_down.Y + (e.Y - M_down.Y), e.X - M_down.X, -(e.Y - M_down.Y))
+                'End If
 
-        If e.X - M_down.X >= 0 And e.Y - M_down.Y >= 0 Then
+                '선택한 이미지 변환
 
-            Using g2 As Graphics = Graphics.FromImage(target)
-                Dim selecrect As New Rectangle(M_down, size)
-                    g2.DrawImage(tempBitmap, target.GetBounds(1), selecrect, GraphicsUnit.Pixel)
-                    Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
-                End Using
-                g.DrawImage(Save_image, M_down)
-        ElseIf e.X - M_down.X <= 0 And e.Y - M_down.Y <= 0 Then
+                If e.X - M_down.X >= 0 And e.Y - M_down.Y >= 0 Then
 
-            Using g2 As Graphics = Graphics.FromImage(target)
-                Dim selecrect As New Rectangle(M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y), -(e.X - M_down.X), -(e.Y - M_down.Y))
-                g2.DrawImage(tempBitmap, target.GetBounds(0), selecrect, GraphicsUnit.Pixel)
-                    Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
+                    Using g2 As Graphics = Graphics.FromImage(target)
+                        Dim selecrect As New Rectangle(M_down, size)
+                        g2.DrawImage(tempBitmap, target.GetBounds(0), selecrect, GraphicsUnit.Pixel)
+                        Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
+                    End Using
+                    g.DrawImage(Save_image, M_down)
+                ElseIf e.X - M_down.X <= 0 And e.Y - M_down.Y <= 0 Then
 
-            End Using
-                g.DrawImage(Save_image, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y))
-        ElseIf e.X - M_down.X <= 0 Then
+                    Using g2 As Graphics = Graphics.FromImage(target)
+                        Dim selecrect As New Rectangle(M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y), -(e.X - M_down.X), -(e.Y - M_down.Y))
+                        g2.DrawImage(tempBitmap, target.GetBounds(0), selecrect, GraphicsUnit.Pixel)
+                        Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
 
-            Using g2 As Graphics = Graphics.FromImage(target)
-                Dim selecrect As New Rectangle(M_down.X + (e.X - M_down.X), M_down.Y, -(e.X - M_down.X), e.Y - M_down.Y)
-                g2.DrawImage(tempBitmap, target.GetBounds(0), selecrect, GraphicsUnit.Pixel)
-                    Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
-                End Using
-                g.DrawImage(Save_image, M_down.X + (e.X - M_down.X), M_down.Y)
-        ElseIf e.Y - M_down.Y <= 0 Then
+                    End Using
+                    g.DrawImage(Save_image, M_down.X + (e.X - M_down.X), M_down.Y + (e.Y - M_down.Y))
+                ElseIf e.X - M_down.X <= 0 Then
 
-            Using g2 As Graphics = Graphics.FromImage(target)
-                Dim selecrect As New Rectangle(M_down.X, M_down.Y + (e.Y - M_down.Y), e.X - M_down.X, -(e.Y - M_down.Y))
-                g2.DrawImage(tempBitmap, target.GetBounds(0), selecrect, GraphicsUnit.Pixel)
-                    Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
-                End Using
-                g.DrawImage(Save_image, M_down.X, M_down.Y + (e.Y - M_down.Y))
-            End If
-            PictureBox4.Image = PictureBox3.Image.Clone
-            move_nevi()
-            tempBitmap.Dispose()
+                    Using g2 As Graphics = Graphics.FromImage(target)
+                        Dim selecrect As New Rectangle(M_down.X + (e.X - M_down.X), M_down.Y, -(e.X - M_down.X), e.Y - M_down.Y)
+                        g2.DrawImage(tempBitmap, target.GetBounds(0), selecrect, GraphicsUnit.Pixel)
+                        Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
+                    End Using
+                    g.DrawImage(Save_image, M_down.X + (e.X - M_down.X), M_down.Y)
+                ElseIf e.Y - M_down.Y <= 0 Then
 
-        Catch ex As Exception
-            Debug.Print(ex.ToString)
-        End Try
+                    Using g2 As Graphics = Graphics.FromImage(target)
+                        Dim selecrect As New Rectangle(M_down.X, M_down.Y + (e.Y - M_down.Y), e.X - M_down.X, -(e.Y - M_down.Y))
+                        g2.DrawImage(tempBitmap, target.GetBounds(0), selecrect, GraphicsUnit.Pixel)
+                        Save_image = Cls_RGBFilter.RGBFiltering(target, TrackBar_R.Value, TrackBar_G.Value, TrackBar_B.Value)
+                    End Using
+                    g.DrawImage(Save_image, M_down.X, M_down.Y + (e.Y - M_down.Y))
+                End If
+                PictureBox4.Image = PictureBox3.Image.Clone
+                move_nevi()
+                tempBitmap.Dispose()
+
+            Catch ex As Exception
+                Debug.Print(ex.ToString)
+            End Try
+        End If
     End Sub
 
     Private Sub PictureBox3_LoadCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs) Handles PictureBox3.LoadCompleted
